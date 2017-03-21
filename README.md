@@ -53,5 +53,51 @@ Packaged JAR file is located in **target** folder with the name of **warehouse-[
 * system.message.errror.save-period=7
   > Error log storing period (Days) (Default: 7 Days)
 
+## Send a job
 
+To submit a job to Acorn Conveyer System, there are three protocols to pass a job: OpenWire, STOMP and REST. All the protocols are purposed to submit to the message queue system. **"acornwarehouse.queue.job"** is a dedicated queue to receive jobs. It also requires to set a destination to receive job results.
 
+* **OpenWire**
+  > OpenWire protocol is for Java and .Net. 
+  >
+  > For .Net, you can submit a job through [NMS API](http://activemq.apache.org/nms/).  
+  > 
+  > Destination should be set as "**queue://acornwarehouse.queue.job**".  
+  > "**ITextMessage**" object should also be set **NMSReplyTo** property.
+  >
+  > For Java, you can submit a job through [ActiveMQ Client Library](https://mvnrepository.com/artifact/org.apache.activemq/activemq-client/5.14.1)
+  > 
+  > Destination should be set as "**queue://acornwarehouse.queue.job**".  
+  > "**Message**" object should also be set **setJMSReplyTo** method.
+  
+* **STOMP**
+  > STOMP protocol is for Ruby, Perl, Python and PHP.
+  >
+  > It is same approach as OpenWire Protocol with setting for destination and replyTo properties.
+  >
+  > Here is an example for **Python**:
+  > ```python
+  > from stompest.config import StompConfig
+  > from stompest.protocol.spec import StompSpec
+  > from stompest.sync import Stomp
+  > import uuid
+  > 
+  > CONFIG = StompConfig('tcp://127.0.0.1:61612', version=StompSpec.VERSION_1_1)
+  > queue = 'acornwarehouse.queue.job'
+  > 
+  > client = Stomp(CONFIG)
+  > client.connect()
+  > correlationId = str(uuid.uuid4())
+  > 
+  > headers = {}
+  > headers['JMSReplyTo'] = 'test.result'
+  > headers['correlation-id'] = correlationId
+  > headers['persistent'] = False
+  > 
+  > client.send(queue, message, headers)
+  >
+  > ```
+
+* **REST**
+  > REST protocol is for all languages, which support REST API.
+  > TODO from here
