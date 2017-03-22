@@ -22,13 +22,18 @@ If those applications are installed, run this command:
 mvn package
 ```
 
-Packaged JAR file is located in **target** folder with the name of **warehouse-[version]-SNAPSHOT.jar**.
+Packaged JAR file is located in **target** folder with the name of **warehouse-[version].jar**.
 
 ## Overall Folder Structure
 
-* warehouse-[version]-SNAPSHOT.jar
+* warehouse-[version].jar
 * application.properties
 * **ext** folder
+
+**To run:**
+```bash
+java -jar warehouse-[version].jar
+```
 
 ## Application Settings
 
@@ -99,5 +104,5 @@ To submit a job to Acorn Conveyer System, there are three protocols to pass a jo
   > ```
 
 * **REST**
-  > REST protocol is for all languages, which support REST API.
+  > REST protocol is for all languages, which support REST API. 
   > TODO from here
