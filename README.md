@@ -130,7 +130,25 @@ To submit a job to Acorn Conveyer System, there are three protocols to pass a jo
     * DEPENDENT_PROGRAM: This is defined in **acorn warehose**. Each of dependency programms has a "conveyer.json" file and it describes a detail of information for the execution. It is managed in embedded Git repository.
     * SYSTEM_PROGRAM, SHELL_SCRIPT: It runs a program|script which should be in **conveyer servers' file systems**.
   * executionAlias: Optional. It is only for "DEPENDENCY_PROGRAM" type. It will be defined in managed dependency resources.
+  * targetOs: Optional. It is for "SYSTEM_PROGRAM" and "SHELL_SCRIPT" types. It defines an Operating System to execute a program/script.
   * executorPath: Optional. It is for "SYSTEM_PROGRAM" and "SHELL_SCRIPT" types. It defines an absolute path to execute a program/script.
   * isReturnWithInput: Optional. It is defined as **true** or **false**. If it is true, a result message contains the execution message.
-  * commandArgs: 
-    
+  * inputType: NOT USED. There are two type of executions: FILE, CONSOLE_MESSAGE
+  * commandArgs: Optional. It defines command line arguments, it will be defined through this field as array.
+  * outputType: There are two type of executions: FILE, CONSOLE_MESSAGE
+  * outputFormat: Optional. It is madatory when defined output type is FILE. It defines an output file name format.
+  * outputArgs: Optional. It defines formatting arguments for the output file.
+
+## Receive a result
+
+To receive a result, it is able to adapt three protocols: OpenWire, STOMP and REST. The result will be returned to pre-defined queue which is described in the destination of the request body.
+
+## Overall system structure
+TODO
+
+
+## Commercial Support
+This solution is open-source based project. Therefore, it can be supported by communities through GitHub's issue tracker.
+We also have consulting and commercial support services. If you want to discuss more, please contact at contact@acornworks.net.
+
+
