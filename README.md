@@ -125,19 +125,22 @@ To submit a job to Acorn Conveyer System, there are three protocols to pass a jo
 ```
 
 * **JSON Description**
-  * jobId: this is an unique ID for the job. If it is not defined, the system assigns a random ID.
-  * executorType: There are three type of executions: DEPENDENT_PROGRAM, SYSTEM_PROGRAM, SHELL_SCRIPT
-    * DEPENDENT_PROGRAM: This is defined in **acorn warehose**. Each of dependency programms has a "conveyer.json" file and it describes a detail of information for the execution. It is managed in embedded Git repository.
-    * SYSTEM_PROGRAM, SHELL_SCRIPT: It runs a program|script which should be in **conveyer servers' file systems**.
-  * executionAlias: Optional. It is only for "DEPENDENCY_PROGRAM" type. It will be defined in managed dependency resources.
-  * targetOs: Optional. It is for "SYSTEM_PROGRAM" and "SHELL_SCRIPT" types. It defines an Operating System to execute a program/script.
-  * executorPath: Optional. It is for "SYSTEM_PROGRAM" and "SHELL_SCRIPT" types. It defines an absolute path to execute a program/script.
-  * isReturnWithInput: Optional. It is defined as **true** or **false**. If it is true, a result message contains the execution message.
-  * inputType: NOT USED. There are two type of executions: FILE, CONSOLE_MESSAGE
-  * commandArgs: Optional. It defines command line arguments, it will be defined through this field as array.
-  * outputType: There are two type of executions: FILE, CONSOLE_MESSAGE
-  * outputFormat: Optional. It is madatory when defined output type is FILE. It defines an output file name format.
-  * outputArgs: Optional. It defines formatting arguments for the output file.
+
+| Element | Mandatory | Description |
+| :-----: | :-------: | ----------- |
+| jobId   | O         | this is an unique ID for the job. If it is not defined, the system assigns a random ID. |
+| executorType | O    | There are three type of executions: DEPENDENT_PROGRAM, SYSTEM_PROGRAM, SHELL_SCRIPT <br/> * DEPENDENT_PROGRAM: This is defined in **acorn warehouse**. Each of dependency programms has a "conveyer.json" file and it describes a detail of information for the execution. It is managed in embedded Git repository. <br/>* SYSTEM_PROGRAM, SHELL_SCRIPT: It runs a program|script which should be in **conveyer servers' file systems**.|
+| executionAlias |    | It is only for "DEPENDENCY_PROGRAM" type. It will be defined in managed dependency resources. |
+| targetOs |          | It is for "SYSTEM_PROGRAM" and "SHELL_SCRIPT" types. It defines an Operating System to execute a program/script. |
+| executorPath |      | It is for "SYSTEM_PROGRAM" and "SHELL_SCRIPT" types. It defines an absolute path to execute a program/script. |
+| isReturnWithInput | | It is defined as **true** or **false**. If it is true, a result message contains the execution message. |
+| inputType | NOT USED | There are two type of executions: FILE, CONSOLE_MESSAGE |
+| commandArgs |       | It defines command line arguments, it will be defined through this field as array. |
+| outputType |        | There are two type of executions: FILE, CONSOLE_MESSAGE |
+| outputFormat |      | It is madatory when defined output type is FILE. It defines an output file name format. |
+| outputArgs |        | It defines formatting arguments for the output file. |
+
+
 
 ## Receive a result
 
