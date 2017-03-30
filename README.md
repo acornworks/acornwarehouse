@@ -82,7 +82,7 @@ To submit a job to Acorn Conveyer System, there are three protocols to pass a jo
   > from stompest.sync import Stomp
   > import uuid
   > 
-  > CONFIG = StompConfig('tcp:/[server-address]:61612', version=StompSpec.VERSION_1_1)
+  > CONFIG = StompConfig('tcp://[server-address]:61612', version=StompSpec.VERSION_1_1)
   > queue = 'acornwarehouse.queue.job'
   > 
   > client = Stomp(CONFIG)
