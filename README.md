@@ -116,7 +116,7 @@ To submit a job to Acorn Conveyer System, there are three protocols to pass a jo
 	"executorType": "DEPENDENT_PROGRAM|SYSTEM_PROGRAM|SHELL_SCRIPT",
 	"executorAlias": "TEST_DEPENDENCY",
 	"executorPath": "C:\\Windows\\System32\\find.exe",
-	"isReturnWithInput": false,
+	"returnWithInput": false,
 	"commandArgs": ["/?"],
 	"outputType": "FILE|CONSOLE_MESSAGE",
 	"outputFormat": "a_%s_%s.txt",
@@ -133,7 +133,7 @@ To submit a job to Acorn Conveyer System, there are three protocols to pass a jo
 | executionAlias |    | It is only for "DEPENDENCY_PROGRAM" type. It will be defined in managed dependency resources. |
 | targetOs |          | It is for "SYSTEM_PROGRAM" and "SHELL_SCRIPT" types. It defines an Operating System to execute a program/script. |
 | executorPath |      | It is for "SYSTEM_PROGRAM" and "SHELL_SCRIPT" types. It defines an absolute path to execute a program/script. |
-| isReturnWithInput | | It is defined as **true** or **false**. If it is true, a result message contains the execution message. |
+| returnWithInput | | It is defined as **true** or **false**. If it is true, a result message contains the execution message. |
 | inputType | NOT USED | There are two type of executions: FILE, CONSOLE_MESSAGE |
 | commandArgs |       | It defines command line arguments, it will be defined through this field as array. |
 | outputType |        | There are two type of executions: FILE, CONSOLE_MESSAGE |
